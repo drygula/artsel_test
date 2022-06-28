@@ -1,0 +1,244 @@
+.header {
+  font-size: 0.78vw;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border-bottom: 1px solid var(--line-color_100);
+    width: 4.5vw;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 2.35vw;
+    padding-bottom: 2.4vw;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      border-left: 1px solid var(--line-color_100);
+    }
+    &:before {
+      left: -1.65vw;
+      bottom: 0;
+    }
+    &:after {
+      left: 11.48vw;
+      bottom: 21%;
+    }
+  }
+  &__logo {
+    &Wrap {
+      position: relative;
+      width: 8vw;
+      top: 0.5vw;
+    }
+  }
+  &__slogan {
+    margin-left: 4.8vw;
+    top: 0.11vw;
+    font-size: 0.82vw;
+    letter-spacing: 0.007vw;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+    }
+  }
+  &__nav {
+    position: relative;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  &__contacts {
+    margin-left: 3.2vw;
+    width: 11.5vw;
+    height: 2.2vw;
+    font-size: 0.73vw;
+  }
+}
+
+.nav {
+  &__link {
+    margin-right: 3.1vw;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      margin-top: 4px;
+      left: 0;
+      width: 0;
+      border-bottom: 1px solid;
+    }
+    &:hover {
+      &:before {
+        width: 2vw;
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__button {
+    width: 1.5vw;
+    height: 1.5vw;
+    position: relative;
+    order: 3;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      border-bottom: 1px solid var(--color-gray_300);
+    }
+    &:before {
+      top: 32%;
+      width: 95%;
+    }
+    &:after {
+      top: 70%;
+      width: 55%;
+    }
+    &:hover {
+      &:after {
+        width: 95%;
+      }
+    }
+    &.active {
+      &:before,
+      &:after {
+        top: 50%;
+        width: 90%;
+        transform-origin: 50% 0;
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__dropdown {
+    margin-right: 3.3vw;
+    display: flex;
+    align-items: center;
+
+    // position: absolute;
+    // top: 100%;
+    // right: 0;
+    // min-width: 8vw;
+    // padding: 0.3vw 0;
+    // background-color: var(--color-gray_300);
+  }
+  margin-left: auto;
+  display: flex;
+}
+
+@media (max-width: $tablet) {
+  .header {
+    font-size: 2vw;
+    &:before {
+      display: none;
+    }
+    .container {
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+    &__logo {
+      &Wrap {
+        width: 20vw;
+        z-index: 15;
+      }
+    }
+    &__slogan {
+      font-size: 1.6vw;
+    }
+    &__nav {
+      margin-left: auto;
+    }
+    &__contacts {
+      margin-left: 0;
+      width: 15vw;
+      height: 3.4vw;
+      font-size: 1.8vw;
+    }
+  }
+
+  .nav {
+    flex-direction: column;
+    margin-left: 0;
+    &__button {
+      width: 3vw;
+      height: 3vw;
+    }
+    &__dropdown {
+      margin-right: 0;
+      align-items: flex-start;
+      padding: 11vw 3.4vw;
+      width: 35vw;
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      transform: translateX(-100%);
+      flex-direction: column;
+      background-color: var(--color-white);
+      transition: all 0.4s;
+      &.active {
+        transform: translateX(0);
+      }
+    }
+    &__link {
+      margin: 0 0 3vw;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .header {
+    font-size: 20px;
+    &__logo {
+      &Wrap {
+        width: 150px;
+      }
+    }
+    &__slogan {
+      display: none;
+    }
+    &__contacts {
+      width: 150px;
+      height: 34px;
+      font-size: 17px;
+    }
+  }
+
+  .nav {
+    &__button {
+      width: 30px;
+      height: 30px;
+      &:before {
+        top: 44%;
+      }
+      &:after {
+        top: 66%;
+      }
+    }
+    &__dropdown {
+      width: 280px;
+      padding: 60px 20px;
+    }
+    &__link {
+      margin: 0 0 20px;
+    }
+  }
+}

@@ -1,0 +1,142 @@
+body {
+  font-family: Gilroy, sans-serif;
+  font-size: 0.88vw;
+  color: var(--color-gray_300);
+}
+a,
+button {
+  color: var(--color-gray_300);
+  text-decoration: none;
+  transition: all 0.4s;
+  &:before,
+  &:after {
+    transition: all 0.4s;
+  }
+}
+
+.page {
+  &Wrapper {
+    min-height: 100vh;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+  }
+}
+.container {
+  width: 88.5vw;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+.button {
+  width: 13vw;
+  height: 2.6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  border-radius: 1.3vw;
+  color: var(--color-gray_300);
+  font-size: 0.85vw;
+  &:hover {
+    color: var(--color-white);
+    background-color: var(--color-gray_300);
+    border-color: transparent;
+  }
+  &_dark {
+    color: var(--color-white);
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-gray_300);
+    }
+  }
+  &_red {
+    width: 14.1vw;
+    color: var(--color-white);
+    background-color: var(--color-red);
+    border-width: 0;
+    &:hover {
+      background-color: var(--color-red_hover);
+    }
+  }
+}
+.slider {
+  &__arrow {
+    width: 3.33vw;
+    height: 3.33vw;
+    border-radius: 50%;
+    position: relative;
+    background-color: var(--color-white);
+    border: 1px solid transparent;
+    &.slick-disabled {
+      cursor: default;
+      opacity: 0.4;
+      border-width: 0 !important;
+    }
+    &:hover {
+      border-color: var(--color-gray_300);
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 26%;
+      height: 45%;
+      transform: translate(-50%, -50%);
+      background: url("@img/svg-icons/slider-arrow_up.svg") center/cover
+        no-repeat;
+    }
+    &_down {
+      margin-left: 1.05vw;
+      &:before {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  .container {
+    width: 94vw;
+  }
+
+  .button {
+    width: 17.2vw;
+    height: 3.4vw;
+    border-radius: 1.7vw;
+    font-size: 1.5vw;
+    &_red {
+      width: 17.2vw;
+    }
+  }
+
+  .slider {
+    &__arrow {
+      width: 5vw;
+      height: 5vw;
+      &_down {
+        margin-left: 2vw;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .container {
+    width: 100%;
+  }
+
+  .button {
+    border-radius: 17px;
+    width: 140px;
+    height: 30px;
+    font-size: 14px;
+    &_red {
+      width: 140px;
+      height: 30px;
+      font-size: 14px;
+    }
+  }
+}
